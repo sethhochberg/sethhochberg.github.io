@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: software | Seth Hochberg]]></title>
+  <link href="https://www.sethhochberg.com/blog/categories/software/atom.xml" rel="self"/>
+  <link href="https://www.sethhochberg.com/"/>
+  <updated>2018-10-24T00:55:50-04:00</updated>
+  <id>https://www.sethhochberg.com/</id>
+  <author>
+    <name><![CDATA[Seth Hochberg]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[FFilter - A simple Python script for spectral filtering of audio files]]></title>
+    <link href="https://www.sethhochberg.com/blog/2012/07/10/FFilter/"/>
+    <updated>2012-07-10T00:00:00-04:00</updated>
+    <id>https://www.sethhochberg.com/blog/2012/07/10/FFilter</id>
+    <content type="html"><![CDATA[<p>FFilter is a project I worked on to implement spectral filtering of audio files in Python using some simple FFT libraries. Its sorta neat, give it a look!</p>
+
+<p>Example usage:</p>
+
+<p><code>bash
+$ python FFilter.py -f audio.wav -o output.wav -hp 100 -lp 2000 -n 1024
+</code></p>
+
+<p>Use...</p>
+
+<p><code>bash
+$ FFilter.py --help
+</code></p>
+
+<p>...for a full breakdown of command line arguments.</p>
+
+<h2>Downloads: </h2>
+
+<p><a href="https://dl.dropbox.com/u/3030733/FFilter.zip">FFilter.zip</a> (contains both project source code and paper)</p>
+
+<p>Full codebase on GitHub:
+<a href="https://github.com/sethhochberg/FFilter">FFilter</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[BoosterWorks - A Volunteer Scheduling System]]></title>
+    <link href="https://www.sethhochberg.com/blog/2012/06/20/Boosterworks/"/>
+    <updated>2012-06-20T00:00:00-04:00</updated>
+    <id>https://www.sethhochberg.com/blog/2012/06/20/Boosterworks</id>
+    <content type="html"><![CDATA[<h2>About:</h2>
+
+<p>(This post references an old version of Boosterworks - a complete rewrite of the software, using Ruby on Rails, is underway prior to a real public launch as a SaaS product.)</p>
+
+<p>BoosterWorks is a piece of software that is designed to help parent booster organizations schedule volunteers for their events more efficiently, while increasing accountability and reducing event coordinator workloads. Currently, BoosterWorks is entering its second year of use with the Tarpon Springs High School Band Boosters.</p>
+
+<p>The program is free (both to use and to build upon) and will run on just about any web server with a recent version of PHP (5.x or higher) and a database server like MySQL or PostgreSQL.</p>
+
+<p>If you'd like a custom feature or set of features added to BoosterWorks, please email me and we'll discuss how this might could be done. Requests that are general enough to be put into the main program can be done for free. A request that either isn't general enough to be put into the main code, or that is specific to your group (including visual changes to match your organizations colors and style) can be performed for a reasonable fee. Please email to get a discussion going!</p>
+
+<p>Don't have time to set it up, or don't know how? If the included documentation isn't enough (see the INSTALL.txt file), I can perform the installation and configuration for you for a small fee to cover my time.</p>
+
+<h2>Get It:</h2>
+
+<p><a href="https://www.github.com/sethhochberg/boosterworks">BoosterWorks on GitHub</a></p>
+
+<p>No package releases are available at this time, pending the software leaving the beta test phase.</p>
+]]></content>
+  </entry>
+  
+</feed>

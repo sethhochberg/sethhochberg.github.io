@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sound | Seth Hochberg]]></title>
+  <link href="https://www.sethhochberg.com/blog/categories/sound/atom.xml" rel="self"/>
+  <link href="https://www.sethhochberg.com/"/>
+  <updated>2018-10-24T00:55:50-04:00</updated>
+  <id>https://www.sethhochberg.com/</id>
+  <author>
+    <name><![CDATA[Seth Hochberg]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Duke Ellington Nutcracker]]></title>
+    <link href="https://www.sethhochberg.com/blog/2014/04/01/nutcracker/"/>
+    <updated>2014-04-01T20:55:00-04:00</updated>
+    <id>https://www.sethhochberg.com/blog/2014/04/01/nutcracker</id>
+    <content type="html"><![CDATA[<p>Way back in December of 2012, the University of Miami's Henry Mancini
+Orchestra and Concert Jazz Band joined together for a concert of
+Americana, featuring Copland's Appalachian Spring and Duke Ellington's
+arrangement of The Nutcracker. I recorded this concert and later
+submitted the virtually-untouched multitrack recording from the live
+show to Downbeat Magazine's Student Music Awards in the category 'Best
+Engineered Live Recording'. They liked it, the recording won, and I've
+meant to get it posted online in its entirety ever since.</p>
+
+<p><a href="http://www.downbeat.com/digitaledition/2013/DB201306/single_page_view/124.html">(a little proof, for good
+measure)</a></p>
+
+<p>Its only taken a year and a half, but, the recordings are finally all
+online, too.</p>
+
+<p><a href="/blog/2012/12/02/henry-mancini-institude-orchestra-americana-november-30th-2012/">Listen to the
+recordings on the original blog post</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SpaceyDelayer - A Multi-Tap Tape Delay Plugin]]></title>
+    <link href="https://www.sethhochberg.com/blog/2013/04/12/spaceydelayer-a-multi-tap-tape-delay-plugin/"/>
+    <updated>2013-04-12T01:28:00-04:00</updated>
+    <id>https://www.sethhochberg.com/blog/2013/04/12/spaceydelayer-a-multi-tap-tape-delay-plugin</id>
+    <content type="html"><![CDATA[<p>A fun, VST-compatible audio processing plugin that emulates classic multitap tape delay hardware like the Boss RE-20.</p>
+
+<p>The novel feature of SpaceyDelayer is that the offset time between taps in the delay is configurable - in a typical multitap tape delay, the user can specify the time between the initial playback and the first delay, but with SpaceyDelayer, the interval between the plugin's 3 delay taps is also configurable.</p>
+
+<p>Nonlinear waveshaping and bandpass filtering round out the "tape" sound, emulating saturation and the frequency response weaknesses of these older devices.</p>
+
+<p>All of the DSP "guts" are contained within SpaceyDelayer.cpp and DDLModule.cpp - in each file's respective ProcessAudioFrame() function. The real magic is the getPastSample() function, which allows me to pull an arbitrary sample from the delay line without inserting a new sample (since we pull multiple taps within a single sample period).</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span></span><span class="c1">// From CSpaceyDelayer::ProcessAudioFrame()&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="kt">float</span> <span class="n">xn_l</span> <span class="o">=</span> <span class="n">pInputBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</span><span class='line'><span class="kt">float</span> <span class="n">yn_l</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="c1">// Do LEFT (MONO) Channel; there is always at least one input/one output</span>
+</span><span class='line'><span class="c1">// (INSERT Effect)</span>
+</span><span class='line'><span class="n">m_DDL_Left</span><span class="p">.</span><span class="n">processAudioFrame</span><span class="p">(</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">xn_l</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">yn_l</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</span><span class='line'><span class="k">if</span><span class="p">(</span><span class="n">m_uMultipleTaps</span> <span class="o">==</span> <span class="n">On</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="n">yn_l</span> <span class="o">=</span> <span class="p">(</span><span class="n">yn_l</span> <span class="o">+</span> <span class="n">m_DDL_Left</span><span class="p">.</span><span class="n">getPastSample</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">m_fTapSize</span><span class="p">));</span>
+</span><span class='line'><span class="n">yn_l</span> <span class="o">=</span> <span class="p">(</span><span class="n">yn_l</span> <span class="o">+</span> <span class="n">m_DDL_Left</span><span class="p">.</span><span class="n">getPastSample</span><span class="p">((</span><span class="kt">int</span><span class="p">)</span><span class="n">m_fTapSize</span><span class="o">*</span><span class="mi">2</span><span class="p">));</span>
+</span><span class='line'><span class="n">yn_l</span> <span class="o">=</span> <span class="n">yn_l</span> <span class="o">*</span> <span class="mf">0.33</span><span class="p">;</span> <span class="c1">//scale back to original-ish amplitude after 3 delay sums</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span><span class='line'><span class="n">pOutputBuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">m_fWetness</span><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span><span class="n">yn_l</span> <span class="o">+</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">m_fWetness</span><span class="p">)</span><span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;</span><span class="n">xn_l</span><span class="p">;</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Do a little scaling and summing to allow for wetness values and to avoid clipping, repeat more times if needed for other channels, and you've got the gist of it.</p>
+
+<p><a href="https://github.com/sethhochberg/SpaceyDelayer">See the full source code here.</a></p>
+]]></content>
+  </entry>
+  
+</feed>

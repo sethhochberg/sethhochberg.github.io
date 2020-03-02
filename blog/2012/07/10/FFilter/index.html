@@ -1,0 +1,180 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FFilter - A simple Python script for spectral filtering of audio files - Seth Hochberg</title>
+	<meta name="author" content="Seth Hochberg">
+
+	
+	<meta name="description" content="FFilter is a project I worked on to implement spectral filtering of audio files in Python using some simple FFT libraries. Its sorta neat, give it a &hellip;">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Seth Hochberg" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script async="true" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Seth Hochberg</a></h1>
+<nav id="main-nav"><ul class="main">
+  <li><a href="/about">About</a></li>
+  <li><a href="/sounds">Sounds</a></li>
+	<li><a href="/projects">Projects</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul class="main">
+  <li><a href="/about">About</a></li>
+  <li><a href="/sounds">Sounds</a></li>
+	<li><a href="/projects">Projects</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="https://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:www.sethhochberg.com">
+			</form>
+		</div>
+	</div>
+</nav>
+<nav id="sub-nav" class="alignright">
+	<div class="social">
+		
+		
+		<a class="google" href="https://plus.google.com/108871962069024406756?rel=author" title="Google+">Google+</a>
+		
+		
+		<a class="twitter" href="http://twitter.com/sethhochberg" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/sethhochberg" title="GitHub">GitHub</a>
+		
+    
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+    
+	</div>
+	<form class="search" action="https://google.com/search" method="get">
+		<input class="alignright" type="text" name="q" results="0">
+		<input type="hidden" name="q" value="site:www.sethhochberg.com">
+	</form>
+</nav>
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">FFilter - a Simple Python Script for Spectral Filtering of Audio Files</h2>
+	<div class="entry-content"><p>FFilter is a project I worked on to implement spectral filtering of audio files in Python using some simple FFT libraries. Its sorta neat, give it a look!</p>
+
+<p>Example usage:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span></span>$ python FFilter.py -f audio.wav -o output.wav -hp <span class="m">100</span> -lp <span class="m">2000</span> -n <span class="m">1024</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Use&#8230;</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span></span>$ FFilter.py --help
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>&#8230;for a full breakdown of command line arguments.</p>
+
+<h2>Downloads: </h2>
+
+<p><a href="https://dl.dropbox.com/u/3030733/FFilter.zip">FFilter.zip</a> (contains both project source code and paper)</p>
+
+<p>Full codebase on GitHub:
+<a href="https://github.com/sethhochberg/FFilter">FFilter</a></p>
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-10T00:00:00-04:00" pubdate data-updated="true">Jul 10<span>th</span>, 2012</time></div>
+	<div class="tags">
+
+
+	<a class='category' href='/blog/categories/software/'>software</a>
+
+
+</div>
+	
+</div>
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+		
+		
+		
+		
+	</div>
+	
+</div>
+
+
+</div>
+	<footer id="footer" class="inner">Copyright &copy; 2018
+
+<a href="mailto:seth@sethhochberg.com">Seth Hochberg</a>
+
+
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-20896088-2']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>
